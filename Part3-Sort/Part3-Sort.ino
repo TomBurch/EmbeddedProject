@@ -17,6 +17,7 @@ void outArray(int array[]) {
 }
 
 int randArray[50];
+char command;
 NumberDisplay display;
 
 void setup() {
@@ -39,15 +40,20 @@ void setup() {
 }
 
 void loop() {
-  generateArray(randArray);
+  while(!Serial.available()) {}
+  command = Serial.read();
+  if (command == 'c') {
+    generateArray(randArray);
   
-  outArray(randArray);
-  quicksort(randArray, 0, 49);
-  outArray(randArray);
+    outArray(randArray);
+    quicksort(randArray, 0, 49);
+    outArray(randArray);
   
-  display.display(randArray[0]);
-  delay(3000);
-  display.display(randArray[49]);
-  delay(3000);
-  Serial.println();
+    display.display(randArray[0]);
+    delay(3000);
+    display.display(randArray[49]);
+    delay(3000);
+    Serial.println();
+  }
+  command = '\0';
 }
