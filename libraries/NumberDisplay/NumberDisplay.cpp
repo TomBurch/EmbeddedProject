@@ -18,7 +18,8 @@ void NumberDisplay::display(int num) {
   int val;
   clearDisplay();
   
-  for (int i = 0; i < 8; i++) {
+  for (int i = 0; i < this->length; i++) {
+	//Set light on/off depending on ith bit of num
     val = (bitRead(num, i) == 0) ? LOW : HIGH;
     digitalWrite(displayBits[i], val);
   }

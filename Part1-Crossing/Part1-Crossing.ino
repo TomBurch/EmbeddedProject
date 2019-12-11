@@ -9,19 +9,24 @@ Crossing cross;
 char command;
 
 void setup() {
+  //Enable serial input
   Serial.begin(9600);
   
+  //TLight1 pins
   pinMode(13, OUTPUT); //Red
   pinMode(12, OUTPUT); //Yellow
   pinMode(11, OUTPUT); //Green
   
+  //TLight2 pins
   pinMode(10, OUTPUT); //Red
   pinMode(9, OUTPUT); //Yellow
   pinMode(8, OUTPUT); //Green
 
-  pinMode(6, OUTPUT);
-  pinMode(5, OUTPUT);
+  //PedLight pins
+  pinMode(6, OUTPUT); //Red
+  pinMode(5, OUTPUT); //Green
 
+  //Setup objects
   pedLight.setup(6, 5);
   light1.setup(13, 12, 11, "TLight1");
   light2.setup(10, 9, 8, "TLight2");
@@ -37,5 +42,5 @@ void loop() {
     cross.setTraffic(true);
     delay(2000);
   }
-  command = '\0';
+  command = '\0'; //Empty character
 }

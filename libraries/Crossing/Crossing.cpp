@@ -8,14 +8,13 @@ void Crossing::setup(PedLight pedLight, TrafficLight light1, TrafficLight light2
   this->light2 = light2;
   this->pedLight = pedLight;
 
-  pedLight.setLights(0);
-  light1.setLights(3);
-  light2.setLights(3);
+  pedLight.setLights(0); //Red
+  light1.setLights(3); //Green
+  light2.setLights(3); //Green
 }
 
 void Crossing::setTraffic(bool mode) {
-  if (mode == true) {
-    //pedLight.flashGreen();
+  if (mode == true) { //PedLight -> Red, TLights -> Green
     pedLight.setTraffic(false);
     delay(500);
     light1.setLights(2);
@@ -23,7 +22,7 @@ void Crossing::setTraffic(bool mode) {
     delay(1000);
     light1.setLights(3);
     light2.setLights(3);
-  } else {
+  } else { //TLights -> Red, PedLight -> Green
     light1.setLights(4);
     light2.setLights(4);
     delay(1000);

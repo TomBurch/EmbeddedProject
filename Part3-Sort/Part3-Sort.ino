@@ -21,18 +21,19 @@ char command;
 NumberDisplay display;
 
 void setup() {
+  //Enable serial input
   Serial.begin(9600);
+  
+  //Create random seed
   randomSeed(analogRead(0));
   
-  // put your setup code here, to run once:
-  pinMode(13, OUTPUT); //Red
-  pinMode(12, OUTPUT); //Yellow
-  pinMode(11, OUTPUT); //Green
-  
-  pinMode(10, OUTPUT); //Red
-  pinMode(9, OUTPUT); //Yellow
-  pinMode(8, OUTPUT); //Green
-  
+  //Display pins
+  pinMode(13, OUTPUT);
+  pinMode(12, OUTPUT);
+  pinMode(11, OUTPUT);
+  pinMode(10, OUTPUT);
+  pinMode(9, OUTPUT);
+  pinMode(8, OUTPUT);
   pinMode(6, OUTPUT);
   pinMode(5, OUTPUT);
   
@@ -53,6 +54,7 @@ void loop() {
     delay(3000);
     display.display(randArray[49]);
     delay(3000);
+	
     Serial.println();
   }
   command = '\0';
