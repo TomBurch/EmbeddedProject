@@ -8,22 +8,6 @@ void TrafficLight::setup(int pinRed, int pinYel, int pinGre, String name) {
   this->name = name;
 };
 
-void TrafficLight::setTraffic(bool mode) {
-  if (mode == false) {
-    setLights(3);
-    delay(1000);
-    setLights(4);
-    delay(1000);
-    setLights(1);
-  } else {
-     setLights(1);
-    delay(1000);
-    setLights(2);
-    delay(1000);
-    setLights(3);
-  }
-}
-
 void TrafficLight::setLights(int stage) {
   clearLights();
   switch (stage) {
@@ -48,6 +32,22 @@ void TrafficLight::setLights(int stage) {
   outState();
 }
 
+void TrafficLight::setTraffic(bool mode) {
+  if (mode == false) { //Gre -> Yel -> Red
+    setLights(3);
+    delay(1000);
+    setLights(4);
+    delay(1000);
+    setLights(1);
+  } else { //Red -> Red + Yel -> Gre
+    setLights(1);
+    delay(1000);
+    setLights(2);
+    delay(1000);
+    setLights(3);
+  }
+}
+
 void TrafficLight::clearLights() {
   digitalWrite(pinRed, LOW);
   digitalWrite(pinYel, LOW);
@@ -60,3 +60,4 @@ void TrafficLight::outState() {
 	String greState = (digitalRead(pinGre) == 0) ? "OFF" : "ON";
 	Serial.println(name + " - Red : " + redState + ", Yel : " + yelState + ", Gre : " + greState);
 }
+

@@ -1,7 +1,7 @@
 #include "Arduino.h"
+//#include "TrafficLight.h" //Included through Crossing.h
+//#include "PedLight.h" //Included through Crossing.h
 #include "Crossing.h"
-#include "TrafficLight.h"
-#include "PedLight.h"
 
 void Crossing::setup(PedLight pedLight, TrafficLight light1, TrafficLight light2) {
   this->light1 = light1;
@@ -32,3 +32,4 @@ void Crossing::setTraffic(bool mode) {
     pedLight.setTraffic(true);
   }
 }
+

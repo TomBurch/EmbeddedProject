@@ -12,10 +12,11 @@ class TrafficLight {
 
   public:  
     void setup(int pinRed, int pinYel, int pinGre, String name);
+	void setLights(int stage);
     void setTraffic(bool mode);
-    void setLights(int stage);
     void clearLights();
 	void outState();
 };
 
 #endif
+

@@ -1,16 +1,17 @@
 #include "Arduino.h"
 #include "PedLight.h"
 
-void PedLight::setup(int pinRed, int pinGre) {
+void PedLight::setup(int pinRed, int pinGre, String name) {
   this->pinRed = pinRed;
   this->pinGre = pinGre;
+  this->name = name;
 }
 
 void PedLight::setLights(int stage) {
-  if (stage == 0) {
+  if (stage == 0) { //Red light
     digitalWrite(pinRed, HIGH);
     digitalWrite(pinGre, LOW);
-  } else {
+  } else { //Green light
     digitalWrite(pinRed, LOW);
     digitalWrite(pinGre, HIGH);
   }
@@ -19,10 +20,10 @@ void PedLight::setLights(int stage) {
 
 void PedLight::setTraffic(bool mode) {
   if (mode == true) {
-    setLights(1);
+    setLights(1); //Green light
   } else {
     flashGreen();
-    setLights(0);
+    setLights(0); //Red light
   }
 }
 
@@ -38,5 +39,6 @@ void PedLight::flashGreen() {
 void PedLight::outState() {
 	String redState = (digitalRead(pinRed) == 0) ? "OFF" : "ON";
 	String greState = (digitalRead(pinGre) == 0) ? "OFF" : "ON";
-	Serial.println("PLight1 - Red : " + redState + ", Gre : " + greState);
+	Serial.println(name + " - Red : " + redState + ", Gre : " + greState);
 }
+
