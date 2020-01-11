@@ -1,6 +1,7 @@
 #include <NumberDisplay.h>
 #include <Quicksort.h>
 
+//Generate 50 random ints(0-255) and place them into randArray[]
 void generateArray(int randArray[]) {
   for (int i = 0; i < 50; i++) {
     int randInt = random(0, 256);
@@ -8,6 +9,7 @@ void generateArray(int randArray[]) {
   }
 }
 
+//Loop through array[] and print each int
 void outArray(int array[]) {
   for(int i = 0; i < 50; i++) {
     Serial.print(array[i]);

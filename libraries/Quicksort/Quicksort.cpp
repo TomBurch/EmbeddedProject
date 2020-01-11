@@ -14,7 +14,7 @@ int partition(int array[], int low, int high) {
   int i = low;
   for (int j = low; j < high; j++) {
     if (array[j] < pivot) {
-      swap(&array[i], &array[j]);
+      swap(&array[i], &array[j]); //Pass pointer to array[] element
       i++;
     }
   }
@@ -28,3 +28,4 @@ void swap(int *a, int *b) {
   *a = *b;
   *b = temp;
 }
+

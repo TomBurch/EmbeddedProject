@@ -11,11 +11,12 @@ void Intersection::setup(TrafficLight light1, TrafficLight light2) {
 };
 
 void Intersection::change(bool mode) {
-  if (mode == false) {
+  if (mode == false) { //Light1 RED, light2 GREEN
     light1.setTraffic(false);
     light2.setTraffic(true);
-  } else {
+  } else { //Light2 RED, light2 GREEN
     light2.setTraffic(false);
     light1.setTraffic(true);
   }
 }
+

@@ -14,10 +14,12 @@ void NumberDisplay::setup(int b0, int b1, int b2, int b3, int b4, int b5, int b6
   this->length = 8;
 }
 
+//Convert int to binary and display on displayBits
 void NumberDisplay::display(int num) {
   int val;
   clearDisplay();
   
+  //Loop through each displayBit
   for (int i = 0; i < this->length; i++) {
 	//Set light on/off depending on ith bit of num
     val = (bitRead(num, i) == 0) ? LOW : HIGH;
@@ -25,8 +27,10 @@ void NumberDisplay::display(int num) {
   }
 }
 
+//Loop through the displayBits and set each to LOW
 void NumberDisplay::clearDisplay() {
   for (int i = 0; i < this->length; i++) {
     digitalWrite(displayBits[i], LOW); 
   }
 }
+
