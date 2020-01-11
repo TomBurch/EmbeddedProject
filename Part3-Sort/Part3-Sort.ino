@@ -51,6 +51,9 @@ void loop() {
     outArray(randArray);
     quicksort(randArray, 0, 49);
     outArray(randArray);
+    
+    Serial.println(randArray[0]);
+    Serial.println(randArray[49]);
   
     display.display(randArray[0]);
     delay(3000);

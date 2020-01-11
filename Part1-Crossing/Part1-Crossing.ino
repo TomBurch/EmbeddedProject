@@ -22,8 +22,8 @@ void setup() {
   pinMode(8, OUTPUT); //Green
 
   //PedLight pins
-  pinMode(7, OUTPUT); //Red
-  pinMode(6, OUTPUT); //Green
+  pinMode(6, OUTPUT); //Red
+  pinMode(5, OUTPUT); //Green
 
   //Setup objects
   pedLight.setup(6, 5, "PLight");
