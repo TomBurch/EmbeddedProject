@@ -13,6 +13,11 @@ void Crossing::setup(PedLight pedLight, TrafficLight light1, TrafficLight light2
   light2.setLights(3); //Green
 }
 
+/*Change PedLight to stop/allow pedestrian traffic and
+simultaneously change both TrafficLights to stop/allow road traffic
+based on mode
+true = PedLight green->red ; TLights red->green
+false = TLights green->red ; PedLight red->green*/
 void Crossing::setTraffic(bool mode) {
   if (mode == true) { //PedLight -> Red, TLights -> Green
     pedLight.setTraffic(false);

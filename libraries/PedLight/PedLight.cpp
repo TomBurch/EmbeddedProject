@@ -7,6 +7,8 @@ void PedLight::setup(int pinRed, int pinGre, String name) {
   this->name = name;
 }
 
+/*Set lights depending on stage
+0 = red light, 1 = green light*/
 void PedLight::setLights(int stage) {
   if (stage == 0) { //Red light
     digitalWrite(pinRed, HIGH);
@@ -18,6 +20,8 @@ void PedLight::setLights(int stage) {
   outState();
 }
 
+/*Change to traffic stopped/allowed depending on mode
+true = red->green, false = green->red*/
 void PedLight::setTraffic(bool mode) {
   if (mode == true) {
     setLights(1); //Green light
@@ -27,6 +31,7 @@ void PedLight::setTraffic(bool mode) {
   }
 }
 
+/*Flash green 5 times*/
 void PedLight::flashGreen() {
   for (int i =  0; i < 5; i++) {
     digitalWrite(pinGre, HIGH);
