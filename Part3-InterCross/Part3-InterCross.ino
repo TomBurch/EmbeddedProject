@@ -1,4 +1,4 @@
-//#include <TrafficLight.h>
+//#include <TrafficLight.h> //Included through Intersection.h
 #include <PedLight.h>
 #include <Intersection.h>
 
